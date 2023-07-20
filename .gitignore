@@ -62,4 +62,5 @@ terraform.tfstate*
 terraform.tfvars
 *.terraform
 *.hcl
-*tfplan*
+test.tfplan
+tfplan.json
