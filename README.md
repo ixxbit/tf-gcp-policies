@@ -1,4 +1,3 @@
-### terraform validator
 
 `gcloud beta terraform vet`
 
@@ -58,9 +57,8 @@ In this demo, we will use `terraform` and `gcloud beta terraform vet` to perform
 - Policy-library with constraints to validate against GCP (https://github.com/GoogleCloudPlatform/policy-library.git)
 
 - GCP - account should have the following [Identity and Access Management (IAM) permissions](https://cloud.google.com/iam)
- `resourcemanager.projects.getIamPolicy
-
- `resourcemanager.projects.get
+ `resourcemanager.projects.getIamPolicy`
+ `resourcemanager.projects.get`
 
 - Terraform 1.1+
 
@@ -73,13 +71,13 @@ In this demo, we will use `terraform` and `gcloud beta terraform vet` to perform
 
 - Cloning the policy library repository.
 
-` git clone https://github.com/GoogleCloudPlatform/policy-library.git
+`git clone https://github.com/GoogleCloudPlatform/policy-library.git`
 
 - Install/Update the **Terraform Tools** component (linux/mac)
 
-`sudo apt-get install google-cloud-sdk-terraform-tools
+`sudo apt-get install google-cloud-sdk-terraform-tools`
 
-`gcloud components update
+`gcloud components update`
 
 - Verify tools issue:
 
@@ -127,9 +125,9 @@ To see how a constraint is implemented, we'll copy an existing constraint, provi
 
 - Copy over the sample IAM domain restriction constraint
 
-` cd policy-library/
+`cd policy-library/`
 
-` cp samples/iam_service_accounts_only.yaml policies/constraints
+`cp samples/iam_service_accounts_only.yaml policies/constraints`
 
   
 
@@ -137,7 +135,7 @@ To see how a constraint is implemented, we'll copy an existing constraint, provi
 
 - Constraint details
 
-` cat policies/constraints/iam_service_accounts_only.yaml
+`cat policies/constraints/iam_service_accounts_only.yaml`
 
 - This constraint checks that all IAM policy members are in the "gserviceaccount.com" domain.
 
@@ -181,7 +179,7 @@ domains:
 
   
 #### Modify the yaml file
-` policies/constraints/iam_service_accounts_only.yaml
+`policies/constraints/iam_service_accounts_only.yaml`
 - under ancestries change ` "organizations/**"` to `"projects/**"`
 
   
@@ -310,19 +308,19 @@ members = [
 
 - Run the following commands to initiate (current directory `policy-library` )
 
-` terraform init
+`terraform init`
 
   
 
 - Export the Terraform plan
 
-` terraform plan -out=test.tfplan
+`terraform plan -out=test.tfplan`
 
   
 
 - Convert the Terraform plan to JSON
 
-` terraform show -json ./test.tfplan > ./tfplan.json
+`terraform show -json ./test.tfplan > ./tfplan.json`
 
   
 
@@ -332,13 +330,11 @@ members = [
 
 - Verify the policy constraint(s) and validate that our tfplan complies with our policies. ` tfplan.json` is used as our input:
 
-` gcloud beta terraform vet tfplan.json --policy-library=.
+`gcloud beta terraform vet tfplan.json --policy-library=.`
 
   
-
 **Since the email address we provided in the IAM policy binding does belong to an allowed domain this terraform plan does pass the validation process
 
 ```
 Processing...Done
-
 ```
