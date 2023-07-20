@@ -214,7 +214,7 @@ We'll create a Terraform file with instructions to bind a role to a user within 
 
   
 
-- Create a new terraform file `policy-library/main.tf` and add:
+- Create a new terraform file `policy-library/iam-binding.tf` and add:
 
 ```
 
@@ -234,7 +234,7 @@ version = "~> 3.84"
 
 }
 
-resource "google_project_iam_binding" "sample_iam_binding" {
+resource "google_project_iam_binding" "user_iam_binding" {
 
 project = "<YOUR PROJECT ID>"
 

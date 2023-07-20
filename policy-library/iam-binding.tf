@@ -1,5 +1,4 @@
-
-resource "google_project_iam_binding" "test_iam_binding" {
+resource "google_project_iam_binding" "user_iam_binding" {
   project = "xtf-validator"
   role    = "roles/viewer"
   members = [
@@ -9,7 +8,7 @@ resource "google_project_iam_binding" "test_iam_binding" {
 
 
 /* 
-resource "google_project_iam_binding" "test_iam_binding" {
+resource "google_project_iam_binding" "members_iam_binding" {
   project = "xtf-validator"
   role    = "roles/viewer"
   members = [
