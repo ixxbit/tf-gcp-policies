@@ -1,4 +1,6 @@
 
+### terraform validator
+
 `gcloud beta terraform vet`
 
 In this demo, we will use `terraform` and `gcloud beta terraform vet` to perform our policy validation process.
@@ -81,25 +83,25 @@ In this demo, we will use `terraform` and `gcloud beta terraform vet` to perform
 
 - Verify tools issue:
 
-- ` terraform --version
+    `terraform --version`
 
-- ` gcloud beta terraform vet
+    `gcloud beta terraform vet`
 
   
 
-### Directory Overview
+### Policy Library - Directory Overview
 
 `policy-library/`
 
 - `policies/` — This directory contains two subdirectories:
 
-- `constraints/` — **This directory is initially empty. Place your constraint files here.**
+- `constraints/` — **This directory is initially empty. We'll place our constraint files here.**
 
 - `templates/` — This directory contains pre-defined constraint templates.
 
 - `samples/` — **This directory contains sample constraints.**
 
-- `validator/` — This directory contains the .rego files and their associated unit tests. You don’t need to touch this directory unless you intend to modify existing constraint templates or create new ones. Running “make build” inlines the Rego content in the corresponding constraint template files.
+- `validator/` — This directory contains the .rego files and their associated unit tests. We don’t need to touch this directory unless we intend to modify existing constraint templates or create new ones. Running “make build” inlines the Rego content in the corresponding constraint template files.
 
   
   
@@ -193,9 +195,9 @@ Identity and Access Management (IAM) roles are collections of IAM permissions.
 
   
 
-A role (viewer, editor, owner) contains a set of permissions that allows you to perform specific actions on Google Cloud resources.
+A role (viewer, editor, owner) contains a set of permissions that allows us to perform specific actions on Google Cloud resources.
 
-To make permissions available to principals you grant roles to principals, including:
+To make permissions available to principals we grant roles to principals, including:
 
 - users
 
